@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.coffee.softmask-for-ugui": "file:C:/Users/leonv/Documents/Year4HKU/02_Afstuderen/Packages/SoftMaskForUGUI-1.0.0",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.2d.tilemap": "1.0.0",
     "com.unity.ads": "3.7.5",
@@ -7,7 +8,7 @@
     "com.unity.collab-proxy": "1.15.4",
     "com.unity.feature.development": "1.0.1",
     "com.unity.ide.rider": "3.0.7",
-    "com.unity.ide.visualstudio": "2.0.12",
+    "com.unity.ide.visualstudio": "2.0.14",
     "com.unity.ide.vscode": "1.2.4",
     "com.unity.purchasing": "4.1.1",
     "com.unity.render-pipelines.universal": "12.1.2",

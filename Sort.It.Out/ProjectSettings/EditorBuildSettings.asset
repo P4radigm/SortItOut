@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SortItOut.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/Uitzoeken.unity
+    guid: 7775c91b66e685246b7ccf0158dd14ce
   m_configObjects: {}

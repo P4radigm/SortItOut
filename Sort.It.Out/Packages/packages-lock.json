@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.coffee.softmask-for-ugui": {
+      "version": "file:C:/Users/leonv/Documents/Year4HKU/02_Afstuderen/Packages/SoftMaskForUGUI-1.0.0",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
@@ -87,7 +93,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.12",
+      "version": "2.0.14",
       "depth": 0,
       "source": "registry",
       "dependencies": {
