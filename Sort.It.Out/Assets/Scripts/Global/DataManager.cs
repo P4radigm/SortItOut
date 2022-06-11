@@ -31,6 +31,7 @@ public class DataManager : MonoBehaviour
     public class RawDefinitionData
 	{
         public int index;
+        [TextArea]
         public string definition;
         public string source;
         //public float[] ratingsX;
@@ -326,7 +327,7 @@ public class DataManager : MonoBehaviour
             return;
         }
 
-        definitionB = offlineDefinitionBackupsOfficial[randomOfflinePersonalDefB];
+        definitionB = offlineDefinitionBackupsPersonal[randomOfflinePersonalDefB];
 
         baseDefB.definition = definitionB.definition;
         baseDefB.givenName = definitionB.source;
@@ -344,7 +345,7 @@ public class DataManager : MonoBehaviour
             return;
         }
 
-        definitionC = offlineDefinitionBackupsOfficial[randomOfflinePersonalDefC];
+        definitionC = offlineDefinitionBackupsPersonal[randomOfflinePersonalDefC];
 
         baseDefC.definition = definitionC.definition;
         baseDefC.givenName = definitionC.source;
