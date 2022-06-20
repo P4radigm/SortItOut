@@ -55,7 +55,7 @@ public class LocationBehaviour : MonoBehaviour
 
 			//Calc new position
 			newXpos += textElementWidth;
-			if(newXpos >= (float)Mathf.CeilToInt((float)bL.selectableLocations.Length / 2f) * textElementWidth)
+			if (newXpos >= (float)Mathf.CeilToInt((float)bL.selectableLocations.Length / 2f) * textElementWidth)
 			{
 				newXpos = (float)Mathf.FloorToInt((float)bL.selectableLocations.Length / 2f) * textElementWidth * -1f;
 			}
@@ -73,13 +73,13 @@ public class LocationBehaviour : MonoBehaviour
 			UpdateTextElementColors();
 		}
 
-		if (Input.touchCount == 0) 
+		if (Input.touchCount == 0)
 		{
 			//Check if an element is at 0, display continue button and set this as 
 			bool isAtZero = false;
 			for (int q = 0; q < textElements.Count; q++)
 			{
-				if(textElements[q].GetComponent<RectTransform>().anchoredPosition.x == 0)
+				if (textElements[q].GetComponent<RectTransform>().anchoredPosition.x == 0)
 				{
 					isAtZero = true;
 				}
@@ -89,13 +89,13 @@ public class LocationBehaviour : MonoBehaviour
 			{
 				continueButton.gameObject.SetActive(true);
 				dM.currentSaveData.location = bL.selectableLocations[getClosestElementToMiddleIndex()].location;
-				
+
 			}
 			else
 			{
 				continueButton.gameObject.SetActive(false);
 			}
-			return; 
+			return;
 		}
 
 		if (!bL.active) { return; }
@@ -104,7 +104,7 @@ public class LocationBehaviour : MonoBehaviour
 		for (int i = 0; i < Input.touches.Length; i++)
 		{
 			//Get parent finger
-			if(Input.touches[i].phase == TouchPhase.Began)
+			if (Input.touches[i].phase == TouchPhase.Began)
 			{
 				pointerEventData = new PointerEventData(eventSystem);
 				pointerEventData.position = Input.GetTouch(i).position;
@@ -118,8 +118,8 @@ public class LocationBehaviour : MonoBehaviour
 					{
 						//Finger has hit target
 						parentedTouchId = Input.touches[i].fingerId;
-						if(animateResidualForceRoutine != null) { StopCoroutine(animateResidualForceRoutine); }
-						if(animateToCenterRoutine != null) { StopCoroutine(animateToCenterRoutine); }
+						if (animateResidualForceRoutine != null) { StopCoroutine(animateResidualForceRoutine); }
+						if (animateToCenterRoutine != null) { StopCoroutine(animateToCenterRoutine); }
 						continueButton.gameObject.SetActive(false);
 
 						for (int t = 0; t < textElements.Count; t++)
@@ -133,7 +133,7 @@ public class LocationBehaviour : MonoBehaviour
 
 
 			//Textelements follow parent finger
-			if(parentedTouchId != -1 && parentedTouchId == Input.touches[i].fingerId)
+			if (parentedTouchId != -1 && parentedTouchId == Input.touches[i].fingerId)
 			{
 				switch (Input.touches[i].phase)
 				{
@@ -146,7 +146,7 @@ public class LocationBehaviour : MonoBehaviour
 						{
 							float predictedNewXpos = textElementXpositions[t] + Input.touches[i].position.x - initialTouchPos.x;
 							float newXpos;
-							if(predictedNewXpos > (float)(bL.selectableLocations.Length / 2) * textElementWidth)
+							if (predictedNewXpos > (float)(bL.selectableLocations.Length / 2) * textElementWidth)
 							{
 								//Out of upper limit
 								newXpos = (float)(bL.selectableLocations.Length / 2) * -textElementWidth + (predictedNewXpos - (float)(bL.selectableLocations.Length / 2) * textElementWidth);
@@ -186,12 +186,12 @@ public class LocationBehaviour : MonoBehaviour
 				}
 			}
 		}
-		
+
 	}
 
 	private void StartAnimateToCenter()
 	{
-		if(animateToCenterRoutine != null) { StopCoroutine(animateToCenterRoutine); }
+		if (animateToCenterRoutine != null) { StopCoroutine(animateToCenterRoutine); }
 		animateToCenterRoutine = StartCoroutine(AnimateToCenter());
 	}
 
@@ -224,10 +224,10 @@ public class LocationBehaviour : MonoBehaviour
 
 	private void UpdateLidwoord()
 	{
-		staticText.text = "ik heb deze ervaring bij " + bL.selectableLocations[getClosestElementToMiddleIndex()].lidwoord + '\n' + '\n' + '\n' + "tegen gekomen";
+		staticText.text = "ik ben deze ervaring bij " + bL.selectableLocations[getClosestElementToMiddleIndex()].lidwoord + '\n' + '\n' + '\n' + "tegen gekomen";
 	}
 
-	private void UpdateTextElementColors() 
+	private void UpdateTextElementColors()
 	{
 		for (int i = 0; i < textElements.Count; i++)
 		{
@@ -242,7 +242,7 @@ public class LocationBehaviour : MonoBehaviour
 		float closest = Mathf.Infinity;
 		for (int i = 0; i < textElements.Count; i++)
 		{
-			if(Mathf.Abs(textElements[i].GetComponent<RectTransform>().anchoredPosition.x) < closest)
+			if (Mathf.Abs(textElements[i].GetComponent<RectTransform>().anchoredPosition.x) < closest)
 			{
 				closest = Mathf.Abs(textElements[i].GetComponent<RectTransform>().anchoredPosition.x);
 				returnObject = i;

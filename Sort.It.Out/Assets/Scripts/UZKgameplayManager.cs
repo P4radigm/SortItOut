@@ -47,6 +47,7 @@ public class UZKgameplayManager : MonoBehaviour
     [SerializeField] private Image endButtonVisualBot; //This is also the raycast target
     private float buttonTimerValue;
     [SerializeField] private TextMeshProUGUI groupCounter;
+    [SerializeField] private Slider noInteractionSlider;
 
     [Header("Tech")]
     [SerializeField] private GameObject wall;
@@ -241,6 +242,7 @@ public class UZKgameplayManager : MonoBehaviour
                 endButtonVisualBot.raycastTarget = false;
                 endButtonVisualTop.fillAmount = 0;
                 endButtonVisualBot.fillAmount = 0;
+                noInteractionSlider.value = 0;
             }
             return; 
         }
@@ -271,6 +273,7 @@ public class UZKgameplayManager : MonoBehaviour
 
         endButtonVisualTop.fillAmount = Mathf.Clamp((buttonTimerValue - NonInteractTimeTillButtonAnim) / endButtonAppearTime, 0f , 1f);
         endButtonVisualBot.fillAmount = Mathf.Clamp((buttonTimerValue - NonInteractTimeTillButtonAnim) / endButtonAppearTime, 0f , 1f);
+        noInteractionSlider.value = Mathf.Clamp(buttonTimerValue, 0, endButtonAppearTime + NonInteractTimeTillButtonAnim) / (endButtonAppearTime + NonInteractTimeTillButtonAnim);
 
         buttonTimerValue += Time.deltaTime;
     }
