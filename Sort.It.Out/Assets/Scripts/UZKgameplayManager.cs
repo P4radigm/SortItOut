@@ -399,18 +399,22 @@ public class UZKgameplayManager : MonoBehaviour
         Vector3 _TopPosition = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height, 10));
         GameObject _TopWall = Instantiate(wall, new Vector3(_TopPosition.x, _TopPosition.y + (wallWidthHeight.y / 2), 0), Quaternion.identity);
         _TopWall.transform.localScale = new Vector3(wallWidthHeight.x, wallWidthHeight.y);
+        _TopWall.transform.parent = transform;
         //Right Wall
         Vector3 _RightPosition = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height / 2, 10));
         GameObject _RightWall = Instantiate(wall, new Vector3(_RightPosition.x + (wallWidthHeight.y / 2), _RightPosition.y, 0), Quaternion.identity);
         _RightWall.transform.localScale = new Vector3(wallWidthHeight.y, wallWidthHeight.x);
+        _RightWall.transform.parent = transform;
         //Bottom Wall
         Vector3 _BottomPosition = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, 0, 10));
         GameObject _BottomWall = Instantiate(wall, new Vector3(_BottomPosition.x, _BottomPosition.y - (wallWidthHeight.y / 2), 0), Quaternion.identity);
         _BottomWall.transform.localScale = new Vector3(wallWidthHeight.x, wallWidthHeight.y);
+        _BottomWall.transform.parent = transform;
         //Left Wall
         Vector3 _LeftPosition = Camera.main.ScreenToWorldPoint(new Vector3(0, Screen.height / 2, 10));
         GameObject _LeftWall = Instantiate(wall, new Vector3(_LeftPosition.x - (wallWidthHeight.y / 2), _LeftPosition.y, 0), Quaternion.identity);
         _LeftWall.transform.localScale = new Vector3(wallWidthHeight.y, wallWidthHeight.x);
+        _LeftWall.transform.parent = transform;
     }
 
     public void UpdateColors(int _TouchCount)

@@ -7,9 +7,6 @@ using UnityEngine.EventSystems;
 public class RatingBehaviour : MonoBehaviour
 {
     [SerializeField] private RectTransform targetGraphic;
-    [SerializeField] private GameObject innerMarkers;
-    [SerializeField] private GameObject halfMarkers;
-    [SerializeField] private GameObject outerMarkers;
     [Space(30)]
     [SerializeField] private RectTransform dottedLineUp;
     [SerializeField] private RectTransform dottedLineRight;
@@ -29,72 +26,63 @@ public class RatingBehaviour : MonoBehaviour
     private float parentCanvasScaleFactor;
 
     private Vector2 raycastTargetScreenPos;
-    private void Start()
-    {
+	private void Start()
+	{
         parentCanvas = GetComponentInParent<Canvas>();
         parentCanvasScaleFactor = parentCanvas.scaleFactor;
         raycastTargetScreenPos = Camera.main.WorldToScreenPoint(raycastTarget.position);
         //Debug.Log($"raycastTargetScreenPos = {raycastTargetScreenPos}");
-        innerMarkers.SetActive(false);
-        outerMarkers.SetActive(false);
     }
 
-    void Update()
+	void Update()
     {
-        if (Input.touchCount == 0) { innerMarkers.SetActive(false); outerMarkers.SetActive(false); return; }
+        if(Input.touchCount == 0) { return; }
 
-        for (int i = 0; i < Input.touches.Length; i++)
-        {
+		for (int i = 0; i < Input.touches.Length; i++)
+		{
             pointerEventData = new PointerEventData(eventSystem);
             pointerEventData.position = Input.GetTouch(i).position;
 
             List<RaycastResult> _results = new List<RaycastResult>();
             graphicsRaycaster.Raycast(pointerEventData, _results);
 
-            foreach (RaycastResult result in _results)
-            {
+            foreach(RaycastResult result in _results)
+			{
                 //Debug.Log(result.gameObject);
-                if (result.gameObject.tag == "RatingTarget")
-                {
-                    if (baseDefinition != null) { continueButton.gameObject.SetActive(true); }
-                    innerMarkers.SetActive(true);
-                    outerMarkers.SetActive(true);
+                if(result.gameObject.tag == "RatingTarget")
+				{
+                    if (baseDefinition != null) { continueButton.gameObject.SetActive(true); continueButton.GetComponent<HintBlink>().Activate(); GetComponent<HintBlink>().DeActivate(); }               
                     //Debug.Log($"touchPos = {Input.GetTouch(i).position}, targetPos = {raycastTargetScreenPos}, relativePos = {Input.GetTouch(i).position - raycastTargetScreenPos}");
                     UpdateTargetPosition(Input.GetTouch(i).position - raycastTargetScreenPos);
                     //Debug.LogWarning("Hit Rating Target!");
                 }
-                else
-                {
-                    innerMarkers.SetActive(false);
-                    outerMarkers.SetActive(false);
-                }
-            }
-        }
+			}
+		}
     }
 
     private void UpdateTargetPosition(Vector2 relativePos)
-    {
+	{
         //Debug.Log(relativePos);
         //Vector2 _newTargetPos = Vector2.zero;
         Vector2 _newTargetPos = new Vector2(Mathf.Clamp(relativePos.x / parentCanvasScaleFactor, -200, 200), Mathf.Clamp(relativePos.y / parentCanvasScaleFactor, -200, 200));
 
-        if (baseDefinition != null) { baseDefinition.rating = _newTargetPos / 200; }
-        if (baseInputDefinition != null) { baseInputDefinition.ownRating = _newTargetPos / 200; }
-
+        if(baseDefinition != null) { baseDefinition.rating = _newTargetPos / 200; }
+        if(baseInputDefinition != null) { baseInputDefinition.ownRating = _newTargetPos / 200; }
+        
 
         targetGraphic.anchoredPosition = _newTargetPos;
 
         //Update lines to match
-        if (_newTargetPos.x > 0)
-        {
+        if(_newTargetPos.x > 0)
+		{
             dottedLineRight.gameObject.SetActive(true);
             dottedLineLeft.gameObject.SetActive(false);
-        }
-        else
-        {
+		}
+		else
+		{
             dottedLineLeft.gameObject.SetActive(true);
             dottedLineRight.gameObject.SetActive(false);
-        }
+		}
 
         if (_newTargetPos.y > 0)
         {

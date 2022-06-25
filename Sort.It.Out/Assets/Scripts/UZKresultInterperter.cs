@@ -17,6 +17,7 @@ public class UZKresultInterperter : MonoBehaviour
 
 	public Vector2[] ConvertToUsableVar(string serverString)
 	{
+		serverString.Replace(',', '.');
 		string[] vecs = serverString.Split('n');
 		List<Vector2> outputList = new();
 
