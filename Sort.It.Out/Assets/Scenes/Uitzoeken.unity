@@ -5172,7 +5172,7 @@ MonoBehaviour:
   m_GlobalFontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_OnFocusSelectAll: 0
   m_ResetOnDeActivation: 0
-  m_RestoreOriginalTextOnEscape: 1
+  m_RestoreOriginalTextOnEscape: 0
   m_isRichTextEditingAllowed: 0
   m_LineLimit: 9
   m_InputValidator: {fileID: 0}
@@ -13941,6 +13941,7 @@ MonoBehaviour:
   - {fileID: 1535405330}
   - {fileID: 1875821920}
   - {fileID: 1379462650}
+  toBeAnimatedGlobalTextsOpacities: []
   toBeAnimatedGlobalImages:
   - {fileID: 594430233}
   - {fileID: 43085381}
@@ -13974,11 +13975,14 @@ MonoBehaviour:
   - {fileID: 1025588206}
   - {fileID: 545499402}
   - {fileID: 1873281717}
+  toBeAnimatedGlobalImagesOpacities: []
   toBeAnimatedDefTexts:
   - {fileID: 2087866098}
   - {fileID: 90988906}
+  toBeAnimatedDefTextsOpacities: []
   toBeAnimatedDefImages:
   - {fileID: 1297636115}
+  toBeAnimatedDefImagesOpacities: []
   animateDefInDuration: 2
   animateDefInCurve:
     serializedVersion: 2
@@ -14032,8 +14036,10 @@ MonoBehaviour:
   toBeAnimatedNameTexts:
   - {fileID: 944257085}
   - {fileID: 172508804}
+  toBeAnimatedNameTextsOpacities: []
   toBeAnimatedNameImages:
   - {fileID: 1335745646}
+  toBeAnimatedNameImagesOpacities: []
   animateNameInDuration: 0.5
   animateNameInCurve:
     serializedVersion: 2
@@ -26527,6 +26533,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  middleRange: {x: -3, y: 3}
   toCenterDuration: 1
   toCenterCurve:
     serializedVersion: 2
@@ -30528,7 +30535,7 @@ MonoBehaviour:
   m_GlobalFontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_OnFocusSelectAll: 0
   m_ResetOnDeActivation: 0
-  m_RestoreOriginalTextOnEscape: 1
+  m_RestoreOriginalTextOnEscape: 0
   m_isRichTextEditingAllowed: 0
   m_LineLimit: 9
   m_InputValidator: {fileID: 0}
@@ -34348,7 +34355,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 960472443937961245}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ef0318e5d9eedc4ebd2e87631c8c2d0, type: 3}
   m_Name: 
@@ -35206,7 +35213,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1550082231272878609}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ef0318e5d9eedc4ebd2e87631c8c2d0, type: 3}
   m_Name: 
@@ -36519,7 +36526,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1818537190345446853}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ef0318e5d9eedc4ebd2e87631c8c2d0, type: 3}
   m_Name: 

@@ -14,10 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Camera: {fileID: 0}
   ScreenshotConfigs:
-  - Name: A4_@300PPI
-    Width: 3840
-    Height: 2480
+  - Name: 
+    Width: 1242
+    Height: 2688
     Type: 0
-  Tag: SOI_
-  AppendTimestamp: 1
-  SaveFolder: C:/Users/leonv/Pictures
+  - Name: 
+    Width: 1242
+    Height: 2208
+    Type: 0
+  - Name: 
+    Width: 1440
+    Height: 2560
+    Type: 0
+  Tag: Uitzoeken_Play1
+  AppendTimestamp: 0
+  SaveFolder: C:/Users/leonv/Documents/Year4HKU/02_Afstuderen/Visuals/StoreAssets/Uitzoeken
